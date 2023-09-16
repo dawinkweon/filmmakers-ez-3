@@ -1,6 +1,6 @@
 import { Advert } from "../../model";
 
-const fixtures: Advert[] = [
+const FAKE_ADVERTS: Advert[] = [
   {
     title:
       "새글[웹드라마]            숏드라마  연기하실 20-30대 여성 배우분 모십니다",
@@ -263,12 +263,4 @@ const fixtures: Advert[] = [
   },
 ];
 
-const regex = /[4-5][0-9]/g;
-
-const isRelevant = (f: Advert) =>
-  f.gender.includes("여자") && (f.age.includes("40") || f.age.match(regex));
-
-  const surroundRelevant = (age: string) : string => {
-    return age.replace(regex, match => "<strong>" + match + "</strong>");
-  }
-export { isRelevant, surroundRelevant };
+export const FIXTURES = { FAKE_ADVERTS };

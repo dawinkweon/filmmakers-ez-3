@@ -2,7 +2,6 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { advertsApi } from "../_api/adverts";
-import { Advert } from "../model";
 import AdvertsTable from "../components/AdvertsTable";
 
 export default function Home() {
