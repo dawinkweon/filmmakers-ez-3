@@ -28,7 +28,7 @@ const findByPageNumber = async (pageNumber: number) => {
       // @ts-ignore
       const link = $(board).find("td > a")[0].attribs.href;
       
-      const linkUrl = path.join(Environment.FILM_MAKERS_BASE_URL, link);
+      const linkUrl = new URL(link , Environment.FILM_MAKERS_BASE_URL).href;
       $(board).find("td > a")[0].attribs.href = linkUrl;
 
 
@@ -51,10 +51,10 @@ const findByPageNumber = async (pageNumber: number) => {
 const getPageUrl = (pageNumber: number) : string => {
   const PAGE_NUMBER_TOKEN = "{pageNumber}";
 
-  const pageUrlTemplate = path.join(
-    Environment.FILM_MAKERS_BASE_URL,
-    `/actorsAudition/page/${PAGE_NUMBER_TOKEN}?extra_vars8=${encodeURI("여자")}`
-  );
+  const pageUrlTemplate = new URL(
+    `/actorsAudition/page/${PAGE_NUMBER_TOKEN}?extra_vars8=${encodeURI("여자")}`,
+    Environment.FILM_MAKERS_BASE_URL
+  ).href;
 
   return pageUrlTemplate.replace(PAGE_NUMBER_TOKEN, pageNumber.toString());
 };
