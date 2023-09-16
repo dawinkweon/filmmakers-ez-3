@@ -27,11 +27,14 @@ const findByPageNumber = async (pageNumber: number) => {
 
       // @ts-ignore
       const link = $(board).find("td > a")[0].attribs.href;
+      
       const linkUrl = path.join(Environment.FILM_MAKERS_BASE_URL, link);
+      $(board).find("td > a")[0].attribs.href = linkUrl;
+
 
       const advert: Advert = {
         // @ts-ignore
-        title: sanitizeHref($(title).html()),
+        title: $(title).html(),
         // @ts-ignore
         age: age.data,
         // @ts-ignore
@@ -44,10 +47,6 @@ const findByPageNumber = async (pageNumber: number) => {
   });
   return adverts;
 };
-
-const sanitizeHref = (html: string) => {
-  return html.replace("/actorsAudition", path.join(Environment.FILM_MAKERS_BASE_URL, "actorsAudition"));
-}
 
 const getPageUrl = (pageNumber: number) : string => {
   const PAGE_NUMBER_TOKEN = "{pageNumber}";
