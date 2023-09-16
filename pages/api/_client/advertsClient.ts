@@ -31,7 +31,7 @@ const findByPageNumber = async (pageNumber: number) => {
 
       const advert: Advert = {
         // @ts-ignore
-        title: $(title).html(),
+        title: sanitizeHref($(title).html()),
         // @ts-ignore
         age: age.data,
         // @ts-ignore
@@ -44,6 +44,10 @@ const findByPageNumber = async (pageNumber: number) => {
   });
   return adverts;
 };
+
+const sanitizeHref = (html: string) => {
+  return html.replace("/actorsAudition", path.join(Environment.FILM_MAKERS_BASE_URL, "actorsAudition"));
+}
 
 const getPageUrl = (pageNumber: number) : string => {
   const PAGE_NUMBER_TOKEN = "{pageNumber}";

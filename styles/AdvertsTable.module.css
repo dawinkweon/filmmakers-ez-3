@@ -1,0 +1,30 @@
+table.advertsTable {
+  padding: 1em;
+  border-spacing: 10px;
+}
+
+.advertsTable tbody td {
+  border-collapse: separate;
+  vertical-align: top;
+}
+
+.advertsTable tbody tr:nth-child(odd) {
+    background-color: lightgrey;
+  }
+
+.applyBtn {
+  text-decoration: none;
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  border-radius: 10px;
+  padding: 4px;
+  background-color: #24a0ed;
+  margin-right: 4px;
+  float:right;
+}
+
+.ageHtmlContainer {
+    text-align: right;
+}

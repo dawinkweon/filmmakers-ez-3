@@ -1,4 +1,5 @@
 import { Advert } from "../model";
+import styles from "../styles/AdvertsTable.module.css";
 
 interface Props {
   adverts: Advert[];
@@ -7,20 +8,14 @@ interface Props {
 const AdvertsTable = (props: Props) => {
   const { adverts } = props;
   return (
-    <table>
+    <table className={styles.advertsTable}>
       <thead>
         <tr>
           <td>
-            <strong>Page #</strong>
+            <strong>제목</strong>
           </td>
           <td>
-            <strong>Title</strong>
-          </td>
-          <td>
-            <strong>Age</strong>
-          </td>
-          <td>
-            <strong>Link</strong>
+            <strong>연령대</strong>
           </td>
         </tr>
       </thead>
@@ -31,24 +26,29 @@ const AdvertsTable = (props: Props) => {
 
 const toRow = (advert: Advert) => {
   return (
-    <tr>
-      <td>{advert.parentPageIndex}</td>
-      <td>
-        <span dangerouslySetInnerHTML={{ __html: advert.title }} />
-      </td>
-      <td>
-        <span dangerouslySetInnerHTML={{ __html: advert.age }} />
-      </td>
-      <td>
-        <a
-          href={advert.linkUrl}
-          target="_blank"
-          style={{ textDecoration: "none" }}
-        >
-          🌐
-        </a>
-      </td>
-    </tr>
+    <>
+      <tr>
+        <td>
+          <span dangerouslySetInnerHTML={{ __html: advert.title }} /> 
+          <p><u>[페이지 #{advert.parentPageIndex}]</u></p>
+        </td>
+        <td>
+          <div className={styles.ageHtmlContainer} dangerouslySetInnerHTML={{ __html: advert.age }} />
+          <div>
+            <p>
+              <a
+                href="mailto:recipient@example.com?subject=Example%20Subject&body=Hello%20there,%0A%0AThis%20is%20the%20body%20of%20the%20email.%20You%20can%20add%20your%20message%20here."
+                // href={advert.linkUrl}
+                target="_blank"
+                className={styles.applyBtn}
+              >
+                신청하기
+              </a>
+            </p>
+          </div>
+        </td>
+      </tr>
+    </>
   );
 };
 

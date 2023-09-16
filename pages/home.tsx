@@ -41,11 +41,7 @@ export default function Home() {
           color: inherit;
           text-decoration: none;
         }
-
-        table {
-          border-collapse: separate;
-          border-spacing: 1.5em;
-        }
+        
         .heading {
           background-color: grey;
         }
