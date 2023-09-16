@@ -29,11 +29,16 @@ const toRow = (advert: Advert) => {
     <>
       <tr>
         <td>
-          <span dangerouslySetInnerHTML={{ __html: advert.title }} /> 
-          <p><u>[페이지 #{advert.parentPageIndex}]</u></p>
+          <span dangerouslySetInnerHTML={{ __html: advert.title }} />
+          <p>
+            <u>[페이지 #{advert.parentPageIndex}]</u>
+          </p>
         </td>
         <td>
-          <div className={styles.ageHtmlContainer} dangerouslySetInnerHTML={{ __html: advert.age }} />
+          <div
+            className={styles.ageHtmlContainer}
+            dangerouslySetInnerHTML={{ __html: advert.age }}
+          />
           <div>
             <p>
               <a

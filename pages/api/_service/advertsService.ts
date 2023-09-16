@@ -17,12 +17,17 @@ const findAdverts = async () => {
 };
 
 const findAdvertsInternal = async () => {
-  // Service returns 3 pages of results by default
-  let ads1: Advert[] = await advertsClient.findByPageNumber(1);
-  let ads2: Advert[] = await advertsClient.findByPageNumber(2);
-  let ads3: Advert[] = await advertsClient.findByPageNumber(3);
+  // performers wanted
+  let pAds1: Advert[] = await advertsClient.findPerformerWantedByPageNumber(1);
+  let pAds2: Advert[] = await advertsClient.findPerformerWantedByPageNumber(2);
+  let pAds3: Advert[] = await advertsClient.findPerformerWantedByPageNumber(3);
 
-  const allAds = [ads1, ads2, ads3].flat();
+  // actor auditions
+  let ads1: Advert[] = await advertsClient.findActorAuditionsByPageNumber(1);
+  let ads2: Advert[] = await advertsClient.findActorAuditionsByPageNumber(2);
+  let ads3: Advert[] = await advertsClient.findActorAuditionsByPageNumber(3);
+
+  const allAds = [pAds1, pAds2, pAds3, ads1, ads2, ads3].flat();
   return allAds.filter(isInterestingAdvert).map(emphasizeAgeHtml);
 };
 
