@@ -40,7 +40,7 @@ const findActorAuditionsByPageNumber = async (pageNumber: number) => {
         // @ts-ignore
         gender: genderValue.data.trim().replace(/\t/g, ""),
         linkUrl: linkUrl,
-        parentPageIndex: pageNumber
+        parentPageIndex: "배우 모집 페이지 #" + pageNumber
       };
       adverts.push(advert);
     });
@@ -84,7 +84,7 @@ const findPerformerWantedByPageNumber = async (pageNumber: number) => {
         // @ts-ignore
         gender: genderValue.data.trim().replace(/\t/g, ""),
         linkUrl: linkUrl,
-        parentPageIndex: pageNumber
+        parentPageIndex: "모델/출연자 모집 페이지 #" + pageNumber
       };
       adverts.push(advert);
     });

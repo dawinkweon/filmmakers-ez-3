@@ -8,19 +8,23 @@ interface Props {
 const AdvertsTable = (props: Props) => {
   const { adverts } = props;
   return (
-    <table className={styles.advertsTable}>
-      <thead>
-        <tr>
-          <td>
-            <strong>제목</strong>
-          </td>
-          <td>
-            <strong>연령대</strong>
-          </td>
-        </tr>
-      </thead>
-      <tbody>{adverts.map(toRow)}</tbody>
-    </table>
+    <>
+      <p style={{color: "orangered", marginLeft: "20px"}}><strong>ℹ️ 제목을 누르면 광고로 갈 수 있습니다.</strong></p>
+
+      <table className={styles.advertsTable}>
+        <thead>
+          <tr>
+            <td>
+              <strong>제목</strong>
+            </td>
+            <td>
+              <strong>연령대</strong>
+            </td>
+          </tr>
+        </thead>
+        <tbody>{adverts.map(toRow)}</tbody>
+      </table>
+    </>
   );
 };
 
@@ -31,7 +35,7 @@ const toRow = (advert: Advert) => {
         <td>
           <span dangerouslySetInnerHTML={{ __html: advert.title }} />
           <p>
-            <u>[페이지 #{advert.parentPageIndex}]</u>
+            <u>[{advert.parentPageIndex}]</u>
           </p>
         </td>
         <td>
