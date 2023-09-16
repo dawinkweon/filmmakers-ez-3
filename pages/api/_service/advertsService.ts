@@ -31,12 +31,32 @@ const findAdvertsInternal = async () => {
   return allAds.filter(isInterestingAdvert).map(emphasizeAgeHtml);
 };
 
-const isInterestingAdvert = (f: Advert) =>
-  isFemale(f.gender) &&
-  (f.age.match(FORTY_TO_FIFTY_NINE_REGEX) ||
-    f.title.match(FORTY_TO_FIFTY_NINE_REGEX) ||
-    f.age.includes("시니어")) ||
-    f.age.includes("중년");
+const keywords = ["시니어", "중년"];
+
+const isInterestingAdvert = (advert: Advert) => {
+  let isKeywordMatch = false;
+  keywords.forEach((keyword) => {
+    if (advert.age.includes(keyword)) {
+      console.info(`age matches keyword for age: ${advert.age}, keyword: ${keyword}`);
+      isKeywordMatch = true;
+    }
+
+    if (advert.title.includes(keyword)) {
+      console.info(`title matches keyword for short title: ${advert.title.slice(0, 200)}, keyword: ${keyword}`);
+      isKeywordMatch = true;
+    }
+  })
+
+  const isAgeBetween40To59 = advert.age.match(FORTY_TO_FIFTY_NINE_REGEX);
+  if (isAgeBetween40To59) {
+    console.info(`age was between 40 to 59 for age: ${advert.age}, regex result: ${isAgeBetween40To59}`);
+  }
+
+  return (
+    isFemale(advert.gender) &&
+    (isAgeBetween40To59 || isKeywordMatch)
+  );
+};
 
 const isFemale = (genderText: string) => genderText.includes("여자");
 
