@@ -1,11 +1,12 @@
 table.advertsTable {
-  padding: 1em;
+  padding: 8px;
   border-spacing: 10px;
 }
 
 .advertsTable tbody td {
   border-collapse: separate;
   vertical-align: top;
+  padding: 8px;
 }
 
 .advertsTable tbody tr:nth-child(odd) {
