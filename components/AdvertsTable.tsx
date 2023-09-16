@@ -11,6 +11,9 @@ const AdvertsTable = (props: Props) => {
       <thead>
         <tr>
           <td>
+            <strong>Page #</strong>
+          </td>
+          <td>
             <strong>Title</strong>
           </td>
           <td>
@@ -29,6 +32,7 @@ const AdvertsTable = (props: Props) => {
 const toRow = (advert: Advert) => {
   return (
     <tr>
+      <td>{advert.parentPageIndex}</td>
       <td>
         <span dangerouslySetInnerHTML={{ __html: advert.title }} />
       </td>

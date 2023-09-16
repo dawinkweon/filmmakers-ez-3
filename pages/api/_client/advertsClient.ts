@@ -37,6 +37,7 @@ const findByPageNumber = async (pageNumber: number) => {
         // @ts-ignore
         gender: genderValue.data.trim().replace(/\t/g, ""),
         linkUrl: linkUrl,
+        parentPageIndex: pageNumber
       };
       adverts.push(advert);
     });

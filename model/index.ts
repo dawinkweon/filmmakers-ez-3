@@ -3,4 +3,5 @@ export type Advert = {
     age: string;
     gender: string;
     linkUrl?: string;
+    parentPageIndex: number;
   };

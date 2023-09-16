@@ -47,6 +47,7 @@ const emphasizeAgeHtml = (advert: Advert): Advert => {
 
 const clone = (advert: Advert): Advert => {
   return {
+    parentPageIndex: advert.parentPageIndex,
     title: advert.title,
     gender: advert.gender,
     linkUrl: advert.linkUrl,
