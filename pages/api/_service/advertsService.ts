@@ -32,7 +32,11 @@ const findAdvertsInternal = async () => {
 };
 
 const isInterestingAdvert = (f: Advert) =>
-  isFemale(f.gender) && f.age.match(FORTY_TO_FIFTY_NINE_REGEX);
+  isFemale(f.gender) &&
+  (f.age.match(FORTY_TO_FIFTY_NINE_REGEX) ||
+    f.title.match(FORTY_TO_FIFTY_NINE_REGEX) ||
+    f.age.includes("시니어")) ||
+    f.age.includes("중년");
 
 const isFemale = (genderText: string) => genderText.includes("여자");
 
