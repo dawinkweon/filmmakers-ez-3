@@ -74,6 +74,7 @@ const findPerformerWantedByPageNumber = async (pageNumber: number) => {
       
       const linkUrl = new URL(link , Environment.FILM_MAKERS_BASE_URL).href;
       $(board).find("td > a")[0].attribs.href = linkUrl;
+      $(board).find("td > a")[0].attribs.target = "_blank";
 
 
       const advert: Advert = {
